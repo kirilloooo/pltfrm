@@ -1,0 +1,7 @@
+ErrorDocument 404 https://site.com/404.html
+ErrorDocument 403 https://site.com/403.html
+
+<IfModule mod_rewrite.c>RewriteEngine OnRewriteBase /
+# Позволить ссылкам без расширений .php и .html обрабатываться правильноRewriteCond %{REQUEST_FILENAME} !-dRewriteCond %{REQUEST_FILENAME}\.php -fRewriteRule ^([^/.]+)$ $1.php [L]
+RewriteCond %{REQUEST_FILENAME} !-dRewriteCond %{REQUEST_FILENAME}\.html -fRewriteRule ^([^/.]+)$ $1.html [L]
+</IfModule>
