@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обрамление смайлов в кавычки</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <label for="emojiInput">Введите смайлы через запятую:</label>
+  <input type="text" id="emojiInput">
+  <button onclick="formatEmojis()">Обрамить смайлы</button>
+
+  <p id="result"></p>
+
+  <script>
+    function formatEmojis() {
+      const input = document.getElementById('emojiInput').value.trim();
+      const emojis = input.split(',').map(emoji => `"${emoji.trim()}"`);
+
+      const resultElement = document.getElementById('result');
+      resultElement.textContent = emojis.join(', ');
+    }
+  </script>
+</body>
+</html>
